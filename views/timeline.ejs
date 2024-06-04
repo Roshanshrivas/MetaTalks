@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeLine</title>
+    <link rel="stylesheet" href="../stylesheets/timeline.css">
+</head>
+<body>
+
+    <div class="timeline-container">
+
+        <nav class="timeline-nav">
+
+            <div class="timeline-head-menu">
+                <a href="../home"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="../timeline"><i class="fa-solid fa-timeline"></i> Timeline</a>
+                <a href="../profile"><i class="fa-solid fa-address-card"></i> Profile</a>
+                <a href="#"><i class="fa-solid fa-phone"></i> Contact</a>
+            </div>
+
+
+            <div class="logout-menu">
+                <a href="../logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </nav>
+
+
+
+        <div class="Post-section">
+
+            <% if(foundUser.postId.length > 0 ){ %>
+
+            <% foundUser.postId.forEach( function(data){ %>
+
+            <div class="Post-cards">
+                <img src="../images/upload/<%= data.image %>" class="card-img-top">
+                <div class="card-body">
+                <h5 class="card-title"><%= foundUser.name %></h5>
+                <p class="card-text"><%= foundUser.username %></p>
+
+                <a href=<%= "/likes/" + data._id %> class="like-btn">Like <%= data.likes.length %></a>
+                <a href="#" class="report-btn">Report 0</a>
+
+                </div>
+
+
+                <!-- comment  -->
+
+                <div class="comment-section">
+
+                <h1>Leave a Comments</h1>
+
+                <% data.Comment.forEach( function(printComment){ %>
+
+                <h5><%= printComment.text %></h5>
+                <h6>By@ <%= printComment.postedBy %></h6>
+
+                <% }) %>
+
+                <form method="post" action= <%= "/comment/" + data._id %> >
+                    <textarea name="text" placeholder="Leave a comment"></textarea>
+                    <br>
+                    <input type="submit" value="Post">
+                </form> 
+
+                </div>
+
+
+            </div>
+
+            <% }) %>
+
+            <% }else{ %>
+
+                <h1>No image</h1>
+
+                <% } %>
+
+        </div>
+
+
+        <!-- <aside></aside> -->
+
+        <footer>
+            <p>© All Right Reserved By - MetaTalks</p>
+        </footer>
+
+    </div>
+    
+    
+</body>
+</html>

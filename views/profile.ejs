@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b4c278321f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../stylesheets/profile.css">
+</head>
+<body>
+
+  <!-- ...... -->
+
+  <div class="body-container">
+    <section class="section-one">
+        <section class="section-two">
+           
+            <div class="grid-container">
+
+                <div class="item1">
+                    <div class="Head-menu">
+                        <a href="../home"><i class="fa-solid fa-house"></i> Home</a>
+                        <a href="../timeline"><i class="fa-solid fa-timeline"></i> Timeline</a>
+                        <a href="#"><i class="fa-solid fa-address-card"></i> About</a>
+                        <a href="#"><i class="fa-solid fa-phone"></i> Contact</a>
+                    </div>
+                </div>
+
+                <div class="item2">
+                  <div class="profile-image">
+                    <img src="../images/upload/<%= data.profilePic[ data.profilePic.length-1 ] %>">
+                  </div>
+
+                  <div class="upload-profile">
+                  <form action="/profilePic" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image"/>
+                  
+                    <input class="post-btn" type="submit" value="Post">
+                  </form>
+                </div>
+                </div>
+
+                <div class="item3">
+                    <div class="about-section">
+                        <li class="text-box1 box">
+                            <p>Name :</p>
+                            <p><%= data.name %></p>
+                        </li>
+
+                        <li class="text-box2 box">
+                            <p>Email :</p>
+                            <p><%= data.username %></p>
+                        </li>
+
+                        <li class="text-box3 box">
+                            <p>Mobile No :</p>
+                            <p>999999999</p>
+                        </li>
+
+                        <li class="text-box4 box">
+                            <p>Status :</p>
+                            <p>Active</p>
+                        </li>
+
+                        <li class="text-box5 box">
+                            <p>Active :</p>
+                            <p>ON</p>
+                        </li>
+                    </div>
+
+                    <div class="logout-edit-btn btn">
+                      <a href="../logout">Logout</a>
+                      <a href="#">Edit</a>
+                  </div>
+
+                </div>  
+
+              </div>
+
+        </section>
+    </section>
+
+    </div>
+
+    <div class="timeline-post">
+
+      <div class="timeline-post-box">
+        <h1>TimeLine Post Upload</h1>
+    <div class="timeline-upload-posts">
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image"/>
+        <input class="post-btn-timeline" type="submit" value="Post">
+      </form>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- ......  -->
+
+
+    <!-- <h1><%= data.name %></h1>
+    <h1><%= data.username %></h1> -->
+
+
+    <!-- <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <input type="file" name="image"/>
+        <br> <br>
+        <input type="submit" value="post">
+
+      </form> -->
+
+    <br> <br>
+
+    <!-- <a href="../logout">Log Out</a> -->
+
+
+    <!-- <div class="profile-image">
+      <img src="../images/upload/<%= data.postId[data.postId.length-1] %>">
+    </div> -->
+
+    <!-- <div class="upload-profile">
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image"/>
+      
+        <input class="post-btn" type="submit" value="Post">
+      </form>
+    </div> -->
+    
+    
+</body>
+</html>
